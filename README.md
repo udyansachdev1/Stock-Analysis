@@ -1,9 +1,9 @@
 # Financial Stock Analysis
 
-[![Format](https://github.com/nogibjj/Final_Project_Stock_Analysis/actions/workflows/format.yml/badge.svg)](https://github.com/nogibjj/Final_Project_Stock_Analysis/actions/workflows/format.yml)
-[![Install](https://github.com/nogibjj/Final_Project_Stock_Analysis/actions/workflows/install.yml/badge.svg)](https://github.com/nogibjj/Final_Project_Stock_Analysis/actions/workflows/install.yml)
-[![Lint](https://github.com/nogibjj/Final_Project_Stock_Analysis/actions/workflows/lint.yml/badge.svg)](https://github.com/nogibjj/Final_Project_Stock_Analysis/actions/workflows/lint.yml)
-[![Test](https://github.com/nogibjj/Final_Project_Stock_Analysis/actions/workflows/test.yml/badge.svg)](https://github.com/nogibjj/Final_Project_Stock_Analysis/actions/workflows/test.yml)
+[![Format](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/format.yml/badge.svg)](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/format.yml)
+[![Install](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/install.yml/badge.svg)](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/install.yml)
+[![Lint](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/lint.yml/badge.svg)](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/lint.yml)
+[![Test](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/test.yml/badge.svg)](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/test.yml)
 
 ## Overview :
 The application is designed to analyze the stock price of a share by utilizing datasets from past 20 years and using live stock market data.
@@ -17,7 +17,7 @@ This repository contains a `Flask App` which is also hosted on `Azure` for publi
 The App can be run by the user locally or can be accessed via the link provided earlier.
 The following image represents the `architectural diagram` of our project :
 
-![Architectural Diagram](https://github.com/nogibjj/Final_Project_Stock_Analysis/blob/main/resources/DE_Final_Schema.png)
+![Architectural Diagram](https://github.com/udyansachdev1/Stock-Analysis/blob/main/resources/DE_Final_Schema.png)
 
 ## Functioning of the App :
 
@@ -26,7 +26,7 @@ This is the landing page of our application which takes two inputs :
 1. The stock that needs to be predicted.
 2. The email where the prediction needs to be sent. 
 
-![Home Page](https://github.com/nogibjj/Final_Project_Stock_Analysis/blob/main/resources/App%20Home%20page.png)
+![Home Page](https://github.com/udyansachdev1/Stock-Analysis/blob/main/resources/App%20Home%20page.png)
 
 ### Output  of the Application: 
 The following are the functions of our application:
@@ -34,22 +34,22 @@ The following are the functions of our application:
 #### 1. Stock Price Prediction
 Information and Predictions of the stock price
   
-![Prediction](https://github.com/nogibjj/Final_Project_Stock_Analysis/blob/main/resources/Prediction_appl.png)
+![Prediction](https://github.com/udyansachdev1/Stock-Analysis/blob/main/resources/Prediction_appl.png)
 
 #### 2. News Articles relevant to the stock : 
 Latest articles to make an informed decision before buying a stock
   
-![News Articles](https://github.com/nogibjj/Final_Project_Stock_Analysis/blob/main/resources/News%20Articles.png)
+![News Articles](https://github.com/udyansachdev1/Stock-Analysis/blob/main/resources/News%20Articles.png)
 
 #### 3. Time Series Plot   : 
 Provides The historical data trends in a candle chart for visual analysis of the stock
 
-![Visualization](https://github.com/nogibjj/Final_Project_Stock_Analysis/blob/main/resources/Time%20Series%20Plot.png)
+![Visualization](https://github.com/udyansachdev1/Stock-Analysis/blob/main/resources/Time%20Series%20Plot.png)
 
 #### 4. Personalized Stock Prediction Mail Service : 
 Personalized Prediction mail
 
-![Email](https://github.com/nogibjj/Final_Project_Stock_Analysis/blob/main/resources/Prediction%20Mail.png)
+![Email](https://github.com/udyansachdev1/Stock-Analysis/blob/main/resources/Prediction%20Mail.png)
 
 ## Instructions to Setup
 A. Online: Visit the Link provided earlier and no additional steps are required. 
@@ -66,7 +66,7 @@ B. Offline:
 `python app.py`
 
 4. click on the Links which are shown in the terminal
-![Installation](https://github.com/nogibjj/Final_Project_Stock_Analysis/blob/main/resources/app_install.png)
+![Installation](https://github.com/udyansachdev1/Stock-Analysis/blob/main/resources/app_install.png)
 
 6. When done using the app, press CTRL+C to quit the app
 
@@ -151,7 +151,7 @@ Github actions are used to automate the following processes whenever a change is
 
 `test :` uses pytest to test the python script
 
-![test](https://github.com/nogibjj/Final_Project_Stock_Analysis/blob/main/resources/test.png)
+![test](https://github.com/udyansachdev1/Stock-Analysis/blob/main/resources/test.png)
 
 `format :` uses black to format the python files
 
@@ -159,7 +159,7 @@ Github actions are used to automate the following processes whenever a change is
 
 Note -if all the processes run successfully the following output will be visible in github actions:
 
-![build](https://github.com/nogibjj/Final_Project_Stock_Analysis/blob/main/resources/build.png)
+![build](https://github.com/udyansachdev1/Stock-Analysis/blob/main/resources/build.png)
 
   ### 5(c). Devcontainer
   
