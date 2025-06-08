@@ -1,6 +1,6 @@
 # Financial Stock Analysis
 
-[![Format](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/format.yml/badge.svg)](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/format.yml)
+[![Format](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/Format.yml/badge.svg)](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/Format.yml)
 [![Install](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/install.yml/badge.svg)](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/install.yml)
 [![Lint](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/lint.yml/badge.svg)](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/lint.yml)
 [![Test](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/test.yml/badge.svg)](https://github.com/udyansachdev1/Stock-Analysis/actions/workflows/test.yml)
