@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Prediction</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 25px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Make the News Articles and Plot sections full width */
+        .news-articles,
+        .time-series-plot {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0;
+        }
+
+        .article {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .article-content pre {
+            margin-bottom: 0;
+            white-space: pre-wrap;
+        }
+
+        .time-series-plot iframe {
+            border: none;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            color: #555;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        hr {
+            margin-top: 40px;
+            border: none;
+            border-top: 1px solid #ccc;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        .prediction-details {
+            margin-top: 20px;
+        }
+
+        .prediction-details p {
+            margin-bottom: 5px;
+            color: #555;
+        }
+        </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Stock Prediction <span style="font-size: 24px;">📈</span></h1>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="ticker">Select Ticker Symbol:</label>
+                <select id="ticker" name="ticker" class="form-control" required>
+                    <option value="" selected disabled>Select a symbol</option>
+                    <option value="AAPL">AAPL</option>
+                    <option value="MSFT">MSFT</option>
+                    <option value="GOOG">GOOG</option>
+                    <option value="AMZN">AMZN</option>
+                    <option value="NVDA">NVDA</option>
+                    <option value="META">META</option>
+                    <option value="TSLA">TSLA</option>
+                    <option value="LLY">LLY</option>
+                    <option value="UNH">UNH</option>
+                    <option value="V">V</option>
+                    <option value="JPM">JPM</option>
+                    <option value="WMT">WMT</option>
+                    <option value="XOM">XOM</option>
+                    <option value="MA">MA</option>
+                    <option value="AVGO">AVGO</option>
+                    <option value="JNJ">JNJ</option>
+                    <option value="PG">PG</option>
+                    <option value="ORCL">ORCL</option>
+                    <option value="HD">HD</option>
+                    <option value="ADBE">ADBE</option>
+
+                </select>
+            </div>
+            <button type="submit" name="action" value="predict">Predict <span style="font-size: 18px;">🔍</span></button>
+
+        </form>
+        <form action="/send_email" method="post">
+            <div class="form-group">
+                <label for="email">Enter Your Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <button type="submit">Send Email <span style="font-size: 18px;">📧</span></button>
+        </form>
+
+    {% if prediction %}
+    <hr>
+    <h2>Prediction</h2>
+    <div class="prediction-details">
+        <p><strong>Symbol:</strong> {{ prediction['Symbol'] }}</p>
+        <p><strong>Name:</strong> {{ prediction['Name'] }}</p>
+        <p><strong>Recent Date:</strong> {{ prediction['RecentDate'] }}</p>
+        <p><strong>Last Close Price:</strong> {{ prediction['Last Close Price'] }}</p>
+        <p><strong>10 Day moving Average:</strong> {{ prediction['10_day_MA'] }}</p>
+        <p><strong>Open:</strong> {{ prediction['Open'] }}</p>
+        <p><strong>High:</strong> {{ prediction['High'] }}</p>
+        <p><strong>Low:</strong> {{ prediction['Low'] }}</p>
+        <p><strong>Country:</strong> {{ prediction['Country'] }}</p>
+        <p><strong>Sector:</strong> {{ prediction['Sector'] }}</p>
+        <p><strong>Industry:</strong> {{ prediction['Industry'] }}</p>
+    </div>
+    {% endif %}
+    
+    {% if news_data %}
+    <hr>
+    <h2>News Articles for {{ prediction['Symbol'] }}</h2>
+    {% for column, data in news_data.items() %}
+        <div class="article">
+        <div class="article-title">{{ column.capitalize() }}</div>
+        <div class="article-content">
+            {% for line in data %}
+                {% for word in line.split() %}
+                    {% if word.startswith('http://') or word.startswith('https://') %}
+                        <a href="{{ word }}" target="_blank">{{ word }}</a>
+                    {% else %}
+                        {{ word }} 
+                    {% endif %}
+                {% endfor %}
+                <br>
+            {% endfor %}
+        </div>
+        </div>
+    {% endfor %}
+    <hr>
+    {% endif %}
+    
+    <div class="text-center">
+        {% if plot_url %}
+        <h2>Time Series Plot</h2>
+        <iframe src="data:text/html;base64,{{ plot_url }}" height="600" width="100%" frameborder="0"></iframe>
+        {% endif %}
+    </div>
+        
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

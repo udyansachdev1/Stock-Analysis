@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(219, 97, 15);
+        }
+
+        .container {
+            width: 50%;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #3498db;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        textarea,
+        input[type="text"],
+        input[type="submit"],
+        input[type="button"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 22px; /* Increased font size */
+        }
+
+        textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"],
+        input[type="button"] {
+            padding: 12px 20px; /* Slightly increased padding */
+            margin-top: 10px;
+            background-color: #2ecc71;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis</h1>
+        <form action="/analyze" method="post" id="sentiment-form">
+            <label for="text">Enter Text:</label>
+            <textarea id="text" name="text" rows="4" cols="50"></textarea>
+            <br>
+            <input type="submit" value="Analyze">
+            <input type="button" value="Reset" onclick="resetForm()">
+        </form>
+    </div>
+
+    <script>
+        function resetForm() {
+            document.getElementById("sentiment-form").reset();
+        }
+    </script>
+</body>
+</html>
