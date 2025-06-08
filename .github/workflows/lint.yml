@@ -1,0 +1,20 @@
+name: Lint
+
+on:
+  workflow_run:
+    workflows: ["Format"]
+    branches: ["main"]
+    types: 
+      - completed
+  
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          pip install ruff
+      - run: |
+          pip install nbqa
+      - name: lint 
+        run: make lint
